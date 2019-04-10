@@ -3,7 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import ElementUI from 'element-ui'
 
+Vue.use(ElementUI)
+var axios = require('axios')
+axios.defaults.baseURL = "http://localhost:8081"
+Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
