@@ -7,7 +7,7 @@ import ElementUI from 'element-ui'
 
 Vue.use(ElementUI)
 var axios = require('axios')
-axios.defaults.baseURL = "http://localhost:8081"
+axios.defaults.baseURL = "http://101.200.60.173:8081"
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 
