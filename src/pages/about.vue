@@ -1,6 +1,9 @@
 <template>
     <div>
         <blog-header></blog-header>
+        <div>
+            
+        </div>
     </div>
 </template>
 

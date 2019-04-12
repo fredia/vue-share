@@ -4,6 +4,7 @@ import book from '@/pages/book.vue'
 import about from '@/pages/about.vue'
 import article from '@/pages/article.vue'
 import slide from '@/pages/slide.vue'
+import upload from '@/pages/upload.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -31,6 +32,11 @@ export default new Router({
             path: '/slide',
             name: 'slide',
             component: slide
+        },
+        {
+            path: "/upload",
+            name: "upload",
+            component: upload
         }
     ]
 })

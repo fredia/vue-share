@@ -4,10 +4,10 @@
     <div class="container">
       <div class="kuang" v-for="entity in list" v-bind:key="entity.id">
         <div class="img">
-          <a target="_blank" :href="entity.pdf">
-            <img :src="entity.src" :alt="entity.title" width="300" height="200">
+          <a target="_blank" :href="entity.path">
+            <img :src="entity.imag" :alt="entity.name" width="300" height="200">
           </a>
-          <div class="desc">这里添加图片NXJXNJASNSAXN文本描述</div>
+          <div class="desc">{{entity.name}}</div>
         </div>
       </div>
     </div>
@@ -21,169 +21,23 @@ export default {
   components: { blogHeader },
   data() {
     return {
-      list: [
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        },
-        {
-          id: 1,
-          src: require("../assets/ver.png"),
-          pdf:
-            "http://localhost:8081/public/static/72f0c345dad04bb299706a76b0d16ee9.pdf",
-          title: "看我",
-          publishTime: "2018-09-23"
-        }
-      ]
+      list: []
     };
+  },
+  created() {
+    this.getList();
+  },
+  methods: {
+    getList() {
+    
+      this.$axios
+        .get("/books")
+        .then(successResponse => {
+          this.list = successResponse.data;
+        })
+        .catch(failResponse => {
+        });
+    }
   }
 };
 </script>
@@ -192,6 +46,7 @@ export default {
 @import "/../styles/site.css";
 .archives-container {
   background-color: #f7f7f7;
+
 }
 
 div.img {
@@ -206,8 +61,8 @@ div.img:hover {
 }
 
 div.img img {
-  width: 100%;
-  height: auto;
+  width: 180px;
+  height: 200px;
 }
 
 div.desc {
@@ -222,10 +77,11 @@ div.desc {
 
 div.kuang {
   float: left;
-  padding:20px;
+  padding: 20px;
 }
 
 div.container {
+  margin-top: 5%;
   margin-left: 25%;
   margin-right: 15%;
   width: 60%;
