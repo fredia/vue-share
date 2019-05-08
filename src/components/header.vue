@@ -8,7 +8,7 @@
                 <router-link to="/book">图书</router-link>
                 <router-link to="/slide">课件</router-link>
                 <router-link to="/article">文章</router-link>
-                <router-link to="/about">版权声明</router-link>
+                <router-link to="/about">项目介绍</router-link>
             </div>
         </div>
     </header>
