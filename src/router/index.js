@@ -5,6 +5,9 @@ import about from '@/pages/about.vue'
 import article from '@/pages/article.vue'
 import slide from '@/pages/slide.vue'
 import upload from '@/pages/upload.vue'
+import login from '@/pages/login.vue'
+import register from '@/pages/register.vue'
+import profile from '@/pages/profile.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -37,6 +40,21 @@ export default new Router({
             path: "/upload",
             name: "upload",
             component: upload
+        },
+        {
+            path: "/login",
+            name: "login",
+            component: login
+        },
+        {
+            path: "/register",
+            name: "register",
+            component: register
+        },
+        {
+            path: "/profile",
+            name: "profile",
+            component: profile
         }
     ]
 })
