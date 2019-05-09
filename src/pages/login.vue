@@ -33,6 +33,8 @@ export default {
        this.$axios
         .post("/login",this.form)
         .then(successResponse => {
+          var sess = window.sessionStorage;
+          sess.setItem("login",this.form.id);
           this.$router.push("/profile");
         })
         .catch(failResponse => {

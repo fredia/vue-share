@@ -19,22 +19,34 @@ export default new Router({
         {
             path: '/book',
             name: 'book',
-            component: book
+            component: book,
+            meta:{
+                needLogin: false
+            }
         },
         {
             path: '/about',
             name: 'about',
-            component: about
+            component: about,
+            meta:{
+                needLogin: false
+            }
         },
         {
             path: '/article',
             name: 'article',
-            component: article
+            component: article,
+            meta:{
+                needLogin: false
+            }
         },
         {
             path: '/slide',
             name: 'slide',
-            component: slide
+            component: slide,
+            meta:{
+                needLogin: false
+            }
         },
         {
             path: "/upload",
@@ -54,7 +66,10 @@ export default new Router({
         {
             path: "/profile",
             name: "profile",
-            component: profile
+            component: profile,
+            meta:{
+                needLogin: true
+            }
         }
     ]
 })

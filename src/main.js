@@ -9,8 +9,17 @@ import './assets/theme/element-blue/index.css';
 Vue.use(ElementUI)
 var axios = require('axios')
 axios.defaults.baseURL = "http://localhost:8081"
+axios.defaults.withCredentials = true
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
+
+router.beforeEach((to, from, next) => {
+  if (!to.meta.needLogin||window.sessionStorage.login) {
+    next()
+  } else {
+    next('/login')
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({
