@@ -29,11 +29,12 @@
       </el-col>
     </el-row>
     <el-row>
-      <el-table :data="tableData" height="250" border style="width: 100%">
-        <el-table-column prop="name" label="图书名" width="180"></el-table-column>
-        <el-table-column prop="user" label="发布者" width="180"></el-table-column>
-        <el-table-column prop="date" label="发布日期" width="180"></el-table-column>
-        <el-table-column label="操作">
+      <el-button type="text" @click="open">点击上传图书</el-button>
+      <el-table :data="tableData" border style="width: 100%">
+        <el-table-column prop="name" label="图书名称" style="width:25%" ></el-table-column>
+        <el-table-column prop="user" label="发布者"  style="width:25%" ></el-table-column>
+        <el-table-column prop="date" label="发布日期"  style="width:25%"></el-table-column>
+        <el-table-column label="操作" style="width:25%">
           <template slot-scope="scope">
             <el-button @click="handleClick(scope.row)" type="text" size="small">删除</el-button>
           </template>
@@ -53,11 +54,31 @@ export default {
         {
           date: "2016-05-02",
           name: "王小虎",
-          user: "上海",
+          user: "上海"
         }
       ]
     };
-  }
+  },
+    methods: {
+      open() {
+        this.$prompt('请输入邮箱', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
+          inputErrorMessage: '邮箱格式不正确'
+        }).then(({ value }) => {
+          this.$message({
+            type: 'success',
+            message: '你的邮箱是: ' + value
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '取消输入'
+          });       
+        });
+      }
+    }
 };
 </script>
 <style>

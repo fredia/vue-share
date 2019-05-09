@@ -4,7 +4,7 @@
       <h3 style="text-align: center;">综合性资源共享平台登陆</h3>
       <el-form ref="form" :model="form" label-width="70px">
         <el-form-item label="用户ID">
-          <el-input v-model="form.name"></el-input>
+          <el-input v-model="form.id"></el-input>
         </el-form-item>
         <el-form-item label="密码">
           <el-input type="password" v-model="form.password"></el-input>
@@ -23,14 +23,20 @@ export default {
   data() {
     return {
       form: {
-        userId: "",
+        id: "",
         password: ""
       }
     };
   },
   methods: {
     onSubmit() {
-      console.log("submit!");
+       this.$axios
+        .post("/login",this.form)
+        .then(successResponse => {
+          this.$router.push("/profile");
+        })
+        .catch(failResponse => {
+        });
     },
     register(){
       this.$router.push("/register");
