@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="loginContainer">
     <div class="login-page">
       <h3 style="text-align: center;">综合性资源共享平台登陆</h3>
       <el-form ref="form" :model="form" label-width="70px">
@@ -48,7 +48,7 @@ export default {
 </script>
 <style scoped>
 @import url("//unpkg.com/element-ui@2.8.2/lib/theme-chalk/index.css");
-div.container {
+div.loginContainer {
   height: 100%;
   width: 100%;
   position:absolute;
