@@ -1,34 +1,5 @@
 <template>
   <div>
-    <el-dialog title="上传图书" :visible.sync="dialogTableVisible">
-      <el-upload
-        class="upload-demo"
-        ref="upload"
-        action="doUpload"
-        accept="application/pdf"
-        :limit="1"
-        :before-upload="beforeUploadPdf"
-      >
-        <el-button slot="trigger" size="small" type="primary">上传pdf</el-button>
-        <div slot="tip" class="el-upload-list__item-name">{{pdfName}}</div>
-      </el-upload>
-
-      <el-upload
-        class="upload-demo"
-        ref="upload"
-        action="doUpload"
-        accept="image/jpeg, image/gif, image/png"
-        :limit="1"
-        :before-upload="beforeUploadImag"
-      >
-        <el-button slot="trigger" size="small" type="primary">上传图片</el-button>
-        <div slot="tip" class="el-upload-list__item-name">{{imagName}}</div>
-      </el-upload>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="visible = false">取消</el-button>
-        <el-button type="primary" @click="submitUpload()">确定</el-button>
-      </span>
-    </el-dialog>
     <el-row style=" background-color:#1E90FF">
       <el-col :span="20">
         <el-menu
@@ -57,44 +28,33 @@
         </el-dropdown>
       </el-col>
     </el-row>
-    <el-row>
-      <el-button type="text" @click="dialogTableVisible = true">点击上传图书</el-button>
-      <el-table :data="tableData" border style="width: 100%">
-        <el-table-column prop="name" label="图书名称" style="width:25%"></el-table-column>
-        <el-table-column prop="publisher" label="发布者" style="width:25%"></el-table-column>
-        <el-table-column prop="createdTime" label="发布日期" style="width:25%"></el-table-column>
-        <el-table-column label="操作" style="width:25%">
-          <template slot-scope="scope">
-            <el-button @click="handleClick(scope.row)" type="text" size="small">删除</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-    </el-row>
+     <component :is="currentView"></component>
   </div>
 </template>
 <script>
+import bookProfile from "@/pages/bookProfile.vue";
+import slideProfile from "@/pages/slideProfile.vue";
+import articleProfile from "@/pages/articleProfile.vue";
 export default {
   name: "profile",
+  components: {bookProfile,slideProfile,articleProfile},
   data() {
     return {
-      dialogTableVisible: false,
       sysUserName: "komu",
       sysUserAvatar: require("@/assets/user.png"),
-      tableData: []
+      currentView: bookProfile,
     };
   },
-  created() {
-    this.getList();
-  },
   methods: {
-    getList() {
-      this.$axios
-        .get("/userBooks?user=" + window.sessionStorage.login)
-        .then(successResponse => {
-          this.tableData = successResponse.data;
-        })
-        .catch(failResponse => {});
-    }
+     handleSelect(key, keyPath) {
+        if(key==1){
+          this.currentView = bookProfile;
+        }else if(key==2){
+          this.currentView = slideProfile;
+        }else if(key==3){
+          this.currentView = articleProfile;
+        }
+      }
   }
 };
 </script>
@@ -140,16 +100,15 @@ img {
   float: right;
 }
 .el-dialog {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: 0 !important;
-    transform: translate(-50%, -50%);
-    max-height: calc(100% - 30px);
-    max-width: calc(100% - 30px);
-    display: flex;
-    flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0 !important;
+  transform: translate(-50%, -50%);
+  max-height: calc(100% - 30px);
+  max-width: calc(100% - 30px);
+  display: flex;
+  flex-direction: column;
 }
-
 </style>
 

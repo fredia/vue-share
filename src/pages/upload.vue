@@ -94,7 +94,7 @@ export default {
           requestConfig
         )
         .then(res => {
-          if (data && data.code === 0) {
+          if (res && res.code === 200) {
             this.$message({
               message: "操作成功",
               type: "success",
@@ -105,7 +105,7 @@ export default {
               }
             });
           } else {
-            this.$message.error(data.msg);
+            this.$message.error(res.msg);
           }
         });
     }

@@ -17,7 +17,7 @@
 <script>
 import blogHeader from "@/components/header.vue";
 export default {
-  name: "home",
+  name: "book",
   components: { blogHeader },
   data() {
     return {

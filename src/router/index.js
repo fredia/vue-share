@@ -8,6 +8,7 @@ import upload from '@/pages/upload.vue'
 import login from '@/pages/login.vue'
 import register from '@/pages/register.vue'
 import profile from '@/pages/profile.vue'
+import quillDemo from '@/pages/quillDemo.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -69,6 +70,14 @@ export default new Router({
             component: profile,
             meta:{
                 needLogin: true
+            }
+        },
+        {
+            path: "/demo",
+            name: "demo",
+            component: quillDemo,
+            meta:{
+                needLogin: false
             }
         }
     ]
